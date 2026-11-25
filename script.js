@@ -3,7 +3,7 @@ const playAgainButton = document.querySelector("#play-again-button");
 const guessInput = document.querySelector("#guessInput");
 let feedback = document.querySelector("#feedback");
 let scoreDisplay = document.querySelector("#score");
-let numberOfGuesses = 1;
+let numberOfGuesses = 0;
 
 
 /*
@@ -19,7 +19,7 @@ function getRandomNumber(){
 
 
 
-const randomNumber = getRandomNumber();
+let randomNumber = getRandomNumber();
 
 
 /*
@@ -32,11 +32,12 @@ guessButton.addEventListener("click", function() {
     const userGuess = parseInt(guessInput.value);
     
     
-    scoreDisplay.textContent = numberOfGuesses++;
+    scoreDisplay.textContent = ++numberOfGuesses;
 
     if(userGuess === randomNumber) {
         feedback.textContent = "Congratulations! You guessed the correct number!";
         feedback.style.color = "green";
+        guessButton.disabled = true;
         console.log(randomNumber);
     } else if(userGuess < randomNumber) {
         feedback.textContent = "Too low! Try again.";
@@ -53,3 +54,13 @@ guessButton.addEventListener("click", function() {
     Reset the game when the user
      clicks the "Play Again" button.
 */
+
+playAgainButton.addEventListener("click", function() {
+    numberOfGuesses = 0;
+    randomNumber = getRandomNumber();
+    scoreDisplay.style.display = "none";
+    feedback.textContent = "";
+    guessInput.value = "";
+    guessButton.disabled = false;
+    
+});
