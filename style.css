@@ -11,6 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    
 }
 
 .container {
@@ -36,8 +37,13 @@ h1 {
     padding: 20px;
     background-color: #0a043962;
     margin-bottom: 20px;
+    height: 75px;
+    justify-content: center;
 
 }
+
+
+
 
 button {
     padding: 10px 20px;
@@ -49,4 +55,7 @@ button {
     margin-top: 10px;
 }
 
+.score-container {
+    margin-top: 30px;
+}
 
